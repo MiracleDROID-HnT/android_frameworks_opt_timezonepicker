@@ -18,12 +18,15 @@ package com.android.timezonepicker;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.android.timezonepicker.R;
 
 public class TimeZonePickerDialog extends DialogFragment implements
         TimeZonePickerView.OnTimeZoneSetListener {
@@ -76,6 +79,8 @@ public class TimeZonePickerDialog extends DialogFragment implements
                                     savedInstanceState.getString(KEY_LAST_FILTER_STRING),
                                     savedInstanceState.getInt(KEY_LAST_FILTER_TIME));
         }
+        Resources res = getActivity().getResources();
+        mView.setBackground(res.getDrawable(R.drawable.dialog_background));
         return mView;
     }
 
